@@ -46,3 +46,13 @@ src/pages/myself.astro
 src/data/bangumi-data.json
 mizuki-deploy-key
 mizuki-deploy-key.pub
+# 忽略 SSH 密钥文件
+*.pem
+*deploy-key*
+id_rsa
+id_ed25519
+
+# 忽略包含密码/令牌的配置文件（根据需要添加）
+*.env
+*.secret
+_config.local.yml

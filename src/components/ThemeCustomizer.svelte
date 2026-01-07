@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { Icon } from '@iconify/svelte';
+  import Icon from '@iconify/svelte';
   
   let isOpen = false;
   let currentTheme = 'auto';
