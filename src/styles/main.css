@@ -7,6 +7,12 @@
 @import "./animation-enhancements.css";
 /* 导入渐变按钮样式 */
 @import "./gradient-buttons.css";
+/* 导入增强动画样式 */
+@import "./enhanced-animations.css";
+/* 导入玻璃拟态样式 */
+@import "./glass-morphism.css";
+/* 导入背景图案样式 */
+@import "./background-patterns.css";
 /* 加密内容样式已移除，现在直接使用非加密文章的样式 */
 
 /* 导入 ZenMaruGothic-Medium 字体 */

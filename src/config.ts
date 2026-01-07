@@ -175,6 +175,18 @@ export const siteConfig: SiteConfig = {
 	},
 	showCoverInContent: true, // 在文章内容页显示文章封面
 	generateOgImages: false, // 启用生成OpenGraph图片功能,注意开启后要渲染很长时间，不建议本地调试的时候开启
+	
+	// 增强功能配置
+	enhancements: {
+		interactiveBackground: true, // 启用交互式背景
+		scrollProgress: true, // 启用滚动进度
+		enhancedAnimations: true, // 启用增强动画
+		glassEffect: true, // 启用玻璃拟态效果
+		themeCustomizer: true, // 启用主题定制器
+		advancedSearch: true, // 启用高级搜索
+		commentSystem: true, // 启用评论系统
+	},
+	
 	favicon: [
 		// 留空以使用默认 favicon
 		// {
@@ -644,7 +656,7 @@ export const pioConfig: import("./types/config").PioConfig = {
 		home: "Click here to go back to homepage!", // 首页提示
 		skin: ["Want to see my new outfit?", "The new outfit looks great~"], // 换装提示
 		close: "QWQ See you next time~", // 关闭提示
-		link: "https://github.com/matsuzaka-yuki/Mizuki", // 关于链接
+		link: "https://github.com/dandingbobaishi", // 关于链接
 	},
 };
 
