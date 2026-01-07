@@ -1,0 +1,44 @@
+⚠️⚠️⚠️ 重要：必须先配置 PERSONAL_TOKEN ⚠️⚠️⚠️
+
+你的仓库架构：
+================
+
+源码仓库: mizuki-blog-source
+    ↓
+GitHub Actions (需要 PERSONAL_TOKEN)
+    ↓
+Pages 仓库: dandingbobaishi.github.io
+    ↓
+网站: https://dandingbobaishi.github.io/
+
+
+配置步骤（只需一次）：
+====================
+
+1. 创建 Personal Access Token
+   访问: https://github.com/settings/tokens
+   点击: Generate new token (classic)
+   勾选: repo 和 workflow
+   复制生成的 token
+
+2. 配置到源码仓库
+   访问: https://github.com/dandingbobaishi/mizuki-blog-source/settings/secrets/actions
+   点击: New repository secret
+   名称: PERSONAL_TOKEN
+   值: 粘贴刚才的 token
+
+3. 推送代码测试
+   git push origin master
+
+4. 访问网站
+   https://dandingbobaishi.github.io/
+
+
+详细文档：
+=========
+- 快速配置指南.md
+- 配置PERSONAL_TOKEN.md
+- README.md
+
+
+配置完成后，每次推送代码都会自动部署！

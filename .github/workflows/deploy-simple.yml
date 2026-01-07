@@ -1,32 +1,38 @@
-name: Simple Deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [ master ]
-
-permissions:
-  contents: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
       
-      - uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
       
-      - uses: pnpm/action-setup@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
         with:
           version: 10.22.0
       
-      - run: pnpm install
+      - name: Install dependencies
+        run: pnpm install
       
-      - run: pnpm run build
+      - name: Build
+        run: pnpm run build
       
-      - uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy to dandingbobaishi.github.io
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          external_repository: dandingbobaishi/dandingbobaishi.github.io
+          publish_branch: main
           publish_dir: ./dist
+          commit_message: 'Deploy from mizuki-blog-source'

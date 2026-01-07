@@ -1,312 +1,309 @@
-# 🌸 Mizuki  
-![Node.js >= 20](https://img.shields.io/badge/node.js-%3E%3D20-brightgreen) 
-![pnpm >= 9](https://img.shields.io/badge/pnpm-%3E%3D9-blue) 
-![Astro](https://img.shields.io/badge/Astro-5.15.3-orange)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue)
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+# 🚀 Mizuki 博客 - 使用指南
 
-![Mizuki Preview](./README.webp)
+# 🚀 Mizuki 博客 - 使用指南
 
-<table>
-  <tr>
-    <td><img alt="" src="docs/image/1.webp"></td>
-    <td><img alt="" src="docs/image/2.webp"></td>
-    <td><img alt="" src="docs/image/3.webp"></td>
-  <tr>
-  <tr>
-    <td><img alt="" src="docs/image/4.webp"></td>
-    <td><img alt="" src="docs/image/5.webp"></td>
-    <td><img alt="" src="docs/image/6.webp"></td>
-  <tr>
-</table>
+## 📊 仓库架构说明
 
+你有两个仓库：
 
-A modern, feature-rich static blog template built with [Astro](https://astro.build), featuring advanced functionality and beautiful design.
+1. **源码仓库**: `mizuki-blog-source` 
+   - 存放 Mizuki 源代码
+   - 推送代码到这里
 
-[**🖥️ Live Demo**](https://mizuki.mysqil.com/)
-[**📝 Documentation**](https://docs.mizuki.mysqil.com/)
+2. **Pages 仓库**: `dandingbobaishi.github.io`
+   - 存放构建后的静态文件
+   - 自动部署，无需手动操作
 
-🌏 README Languages
-[**English**](./README.md) /
-[**中文**](./README.zh.md) /
-[**日本語**](./docs/README.ja.md) /
-[**中文繁体**](./docs/README.tw.md) /
-
-![Configuration](configuration.svg)
-
-### 🔧 Component Configuration System Restructuring
-- **Unified Configuration Architecture:** Brand new modular component configuration system, supporting dynamic component management and order configuration
-- **Configuration-Driven Component Loading:** Restructured SideBar component, implementing fully configuration-based component loading mechanism
-- **Unified Control Switches:** Removed independent enable switches for music player and announcement components, unified control through sidebarLayoutConfig
-- **Responsive Layout Adaptation:** Components support responsive layouts, automatically adjusting display based on device type
-
-### 📐 Layout System Optimization
-- **Dynamic Sidebar Position Adjustment:** Support for left/right sidebar switching, with automatic layout adaptation
-- **Intelligent Article Directory Positioning:** When sidebar is on the right, article navigation automatically moves to the left, providing a better reading experience
-- **Grid Layout Improvements:** Optimized CSS Grid layout, resolving container width anomaly issues
-
-### 🎛️ Configuration File Format Standardization
-- **Standardized Configuration Format:** Created unified component configuration file format specifications
-- **Type Safety:** Comprehensive TypeScript type definitions ensuring configuration type safety
-- **Extensibility:** Support for custom component types and configuration options
-
-### 🧹 Code Optimization
-- **Test File Cleanup:** Removed unused test configurations and dependencies, reducing project size
-- **Code Structure Optimization:** Improved component architecture, enhancing code maintainability
-- **Performance Improvement:** Optimized component loading logic, improving page rendering performance
+```
+mizuki-blog-source → GitHub Actions → dandingbobaishi.github.io → 网站
+```
 
 ---
 
-## ✨ Features
+## ⚡ 首次配置（重要！）
 
-### 🎨 Design & Interface
-- [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
-- [x] Smooth animations and page transitions using [Swup](https://swup.js.org/)
-- [x] Light/dark theme switching with system preference detection
-- [x] Customizable theme colors and dynamic banner carousel
-- [x] Fullscreen background images with carousel, opacity, and blur effects
-- [x] Fully responsive design for all devices
-- [x] Beautiful typography with JetBrains Mono font
+**必须先配置 PERSONAL_TOKEN 才能自动部署！**
 
-### 🔍 Content & Search
-- [x] Advanced search functionality based on [Pagefind](https://pagefind.app/)
-- [x] [Enhanced Markdown features](#-markdown-extensions) with syntax highlighting
-- [x] Interactive table of contents with auto-scrolling
-- [x] RSS feed generation
-- [x] Reading time estimation
-- [x] Article categorization and tagging system
+详细步骤查看：[快速配置指南.md](./快速配置指南.md)
 
+### 简要步骤
 
+1. **创建 Token**: https://github.com/settings/tokens
+   - 勾选 `repo` 和 `workflow` 权限
 
-### 📱 Special Pages
-- [x] **Anime Tracking Page** - Track anime watching progress and ratings
-- [x] **Friends Page** - Beautiful cards showcasing friend websites
-- [x] **Diary Page** - Share life moments, similar to social media
-- [x] **Archive Page** - Organized timeline view of articles
-- [x] **About Page** - Customizable personal introduction
+2. **配置 Secret**: https://github.com/dandingbobaishi/mizuki-blog-source/settings/secrets/actions
+   - 名称：`PERSONAL_TOKEN`
+   - 值：刚才创建的 token
 
-### 🛠 Technical Features
-- [x] **Enhanced code blocks** based on [Expressive Code](https://expressive-code.com/)
-- [x] **Math formula support** with KaTeX rendering
-- [x] **Image optimization** with PhotoSwipe gallery integration
-- [x] **SEO optimization** including sitemaps and meta tags
-- [x] **Performance optimization** with lazy loading and caching
-- [x] **Comment system** with Twikoo integration
-
-## 🚀 Quick Start
-
-### 📦 Installation
-
-1. **Clone the repository:**
+3. **推送测试**:
    ```bash
-   git clone https://github.com/matsuzaka-yuki/mizuki.git
-   cd mizuki
+   git push origin master
    ```
 
-2. **Install dependencies:**
-   ```bash
-   # Install pnpm if not already installed
-   npm install -g pnpm
-   
-   # Install project dependencies
-   pnpm install
-   ```
+4. **访问**: https://dandingbobaishi.github.io/
 
-3. **Configure your blog:**
-   - Edit `src/config.ts` to customize blog settings
-   - Update site information, theme colors, banner images, and social links
-   - Configure feature page functionality
+---
 
-4. **Start the development server:**
-   ```bash
-   pnpm dev
-   ```
-   Your blog will be available at `http://localhost:4321`
+## 📝 快速开始
 
-### 📝 Content Management
-
-- **Create new posts:** `pnpm new-post <filename>`
-- **Edit posts:** Modify files in `src/content/posts/`
-- **Customize special pages:** Edit files in `src/content/spec/`
-- **Add images:** Place images in `src/assets/` or `public/`
-
-### 🚀 Deployment
-
-Deploy your blog to any static hosting platform:
-
-- **Vercel:** Connect your GitHub repository to Vercel
-- **Netlify:** Deploy directly from GitHub
-- **GitHub Pages:** Use the included GitHub Actions workflow
-- **Cloudflare Pages:** Connect your repository
-
-- **Environment Variable Configuration (Optional):** Configure in `.env` file or deployment platform
+### 1. 本地预览
 
 ```bash
-# Umami API key for accessing Umami analytics data
-# If Umami is enabled in config.ts, it's recommended to configure the API key here
-UMAMI_API_KEY=your_umami_api_key_here
-# bcrypt salt rounds (10-14 recommended, default 12)
-BCRYPT_SALT_ROUNDS=12
+cd mizuki
+npm run dev
 ```
 
-Before deployment, update the `siteURL` in `src/config.ts`.
-**Not recommended** to commit the `.env` file to Git. The `.env` file should only be used for local debugging or building. For cloud platform deployment, it's recommended to configure via the platform's `environment variables` settings.
+访问 http://localhost:4321
 
-## 📝 Post Frontmatter Format
+### 2. 创建文章
 
-```yaml
+在 `src/content/posts/` 目录下创建 `.md` 文件：
+
+```markdown
 ---
-title: My First Blog Post
-published: 2023-09-09
-description: This is the first post of my new blog.
-image: ./cover.jpg
-tags: [tag1, tag2]
-category: Frontend
-draft: false
-pinned: false
-lang: en      # Only set when article language differs from site language in config.ts
+title: 文章标题
+published: 2024-01-15
+description: 文章描述
+tags: [标签1, 标签2]
+category: 分类
 ---
+
+文章内容...
 ```
 
-### Frontmatter Field Descriptions
+### 3. 部署到 GitHub Pages
 
-- **title**: Article title (required)
-- **published**: Publication date (required)
-- **description**: Article description for SEO and previews
-- **image**: Cover image path (relative to article file)
-- **tags**: Array of tags for categorization
-- **category**: Article category
-- **draft**: Set to `true` to hide article in production
-- **pinned**: Set to `true` to pin article to top
-- **lang**: Article language (only set when different from site default)
+#### 方法 1: 使用脚本（推荐）
 
-### Pinned Articles Feature
-
-The `pinned` field allows you to pin important articles to the top of your blog list. Pinned articles will always appear before regular articles regardless of their publication date.
-
-**Usage:**
-```yaml
-pinned: true  # Pin this article to the top
-pinned: false # Regular article (default)
+```bash
+# 双击运行
+deploy-simple.bat
 ```
 
-**Sorting Rules:**
-1. Pinned articles appear first, sorted by publication date (newest first)
-2. Regular articles follow, sorted by publication date (newest first)
+#### 方法 2: 手动推送
 
-## 🧩 Markdown Extensions
+```bash
+git add .
+git commit -m "更新博客"
+git push origin master
+```
 
-Mizuki supports enhanced features beyond standard GitHub Flavored Markdown:
+### 4. 配置 GitHub Pages
 
-### 📝 Enhanced Writing
-- **Callouts:** Create beautiful annotation boxes using `> [!NOTE]`, `> [!TIP]`, `> [!WARNING]`, etc.
-- **Math Formulas:** Write LaTeX math formulas using `$inline$` and `$$block$$` syntax
-- **Code Highlighting:** Advanced syntax highlighting with line numbers and copy buttons
-- **GitHub Cards:** Embed repository cards using `::github{repo="user/repo"}`
+**首次部署需要配置**：
 
-### 🎨 Visual Elements
-- **Image Gallery:** Automatic PhotoSwipe integration for image viewing
-- **Collapsible Sections:** Create expandable content blocks
-- **Custom Components:** Enhance content with special directives
+1. 打开你的 GitHub 仓库
+2. 进入 **Settings** → **Pages**
+3. 设置：
+   - **Source**: Deploy from a branch
+   - **Branch**: `gh-pages` / `root`
+4. 点击 **Save**
 
-### 📊 Content Organization
-- **Table of Contents:** Automatically generated from headings with smooth scrolling
-- **Reading Time:** Automatically calculated and displayed
-- **Article Metadata:** Rich frontmatter support with categories and tags
+### 5. 访问网站
 
-## ⚡ Commands
+等待 2-5 分钟后访问：
+- `https://你的用户名.github.io/你的仓库名/`
 
-All commands are run from the project root:
+---
 
-| Command                    | Action                                   |
-|:---------------------------|:-----------------------------------------|
-| `pnpm install`             | Install dependencies                     |
-| `pnpm dev`                 | Start local dev server at `localhost:4321` |
-| `pnpm build`               | Build production site to `./dist/`       |
-| `pnpm preview`             | Preview build locally before deployment  |
-| `pnpm check`               | Run Astro error checking                 |
-| `pnpm format`              | Format code with Prettier                   |
-| `pnpm lint`                | Check and fix code issues                |
-| `pnpm new-post <filename>` | Create a new blog post                   |
-| `pnpm astro ...`           | Run Astro CLI commands                   |
+## 📁 项目结构
 
-## 🎯 Configuration Guide
+```
+mizuki/
+├── src/
+│   ├── content/
+│   │   └── posts/          # 📝 文章目录
+│   ├── components/         # 🧩 组件
+│   ├── styles/            # 🎨 样式
+│   ├── layouts/           # 📐 布局
+│   └── config.ts          # ⚙️ 配置文件
+├── public/                # 📦 静态资源
+│   └── assets/           # 图片等
+├── .github/
+│   └── workflows/
+│       └── deploy-simple.yml  # 🚀 自动部署
+├── deploy-simple.bat      # 一键部署脚本
+└── package.json          # 项目配置
+```
 
-### 🔧 Basic Configuration
+---
 
-Edit `src/config.ts` to customize your blog:
+## ⚙️ 配置说明
+
+### 网站基本信息
+
+编辑 `src/config.ts`：
 
 ```typescript
-export const siteConfig: SiteConfig = {
-  title: "Your Blog Name",
-  subtitle: "Your Blog Description",
-  lang: "en", // or "zh-CN", "ja", etc.
-  themeColor: {
-    hue: 210, // 0-360, theme hue
-    fixed: false, // Hide theme color picker
-  },
-  banner: {
-    enable: true,
-    src: ["assets/banner/1.webp"], // Banner images
-    carousel: {
-      enable: true,
-      interval: 0.8, // seconds
-    },
-  },
+export const siteConfig = {
+  title: "你的博客名称",
+  subtitle: "副标题",
+  siteURL: "https://你的用户名.github.io/仓库名/",
+  // ...
 };
 ```
 
-### 📱 Feature Page Configuration
+### 导航栏
 
-- **Anime Page:** Edit anime list in `src/pages/anime.astro`
-- **Friends Page:** Edit friend data in `src/content/spec/friends.md`
-- **Diary Page:** Edit moments in `src/pages/diary.astro`
-- **About Page:** Edit content in `src/content/spec/about.md`
+```typescript
+export const navBarConfig = {
+  links: [
+    LinkPreset.Home,
+    LinkPreset.Archive,
+    {
+      name: "关于",
+      url: "/about/",
+      icon: "material-symbols:info",
+    },
+  ],
+};
+```
 
-## ✏️ Contributing
+### 主题颜色
 
-Contributions are welcome! Feel free to submit issues and pull requests.
+```typescript
+themeColor: {
+  hue: 230,  // 0-360，调整主题色相
+  fixed: false,
+},
+```
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.
-
-### Original Project License
-
-This project is based on [Fuwari](https://github.com/saicaca/fuwari), which is licensed under the MIT License. The original copyright notice and permission notice are included in the LICENSE.MIT file in accordance with the MIT License requirements.
-
-## 🙏 Acknowledgements
-
-- Based on the original [Fuwari](https://github.com/saicaca/fuwari) template
-- Inspired by [Yukina](https://github.com/WhitePaper233/yukina) - a beautiful and elegant blog template
-- Some designs are inspired by [Firefly](https://github.com/CuteLeaf/Firefly) template
-- Uses [Pio](https://github.com/Dreamer-Paul/Pio) to implement the adorable Live2D mascot plugin
-- Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
-- Icons from [Iconify](https://iconify.design/)
-
-### 🌸 Special Thanks
-
-- **[Fuwari](https://github.com/saicaca/fuwari)** by saicaca - The original template that this project is based on. Thank you for creating such a beautiful and functional template.
-- **[Yukina](https://github.com/WhitePaper233/yukina)** - Thanks for providing design inspiration and creativity that helped shape this project. Yukina is an elegant blog template that demonstrates excellent design principles and user experience.
-- **[Firefly](https://github.com/CuteLeaf/Firefly)** - Thanks for providing excellent layout design ideas. The dual sidebar layout, article dual-column grid layout, and some widget designs and implementations have enriched Mizuki's interface.
-
-## 🍀 Contributors
-
-Thanks to all contributors for their contributions to this project. If you have any questions or suggestions, please submit an [Issue](https://github.com/matsuzaka-yuki/Mizuki/issues) or [Pull Request](https://github.com/matsuzaka-yuki/Mizuki/pulls).
-
-<a href="https://github.com/matsuzaka-yuki/Mizuki/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=matsuzaka-yuki/Mizuki" />
-</a>
-
-## ⭐ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=matsuzaka-yuki/Mizuki&type=Date)](https://star-history.com/#matsuzaka-yuki/Mizuki&Date)
 ---
 
-⭐ If you find this project helpful, please consider giving it a star!
+## 🎨 样式定制
+
+### 已包含的样式
+
+1. **增强动画** (`enhanced-animations.css`)
+   - 页面加载动画
+   - 悬浮效果
+   - 过渡动画
+
+2. **玻璃拟态** (`glass-morphism.css`)
+   - 半透明卡片
+   - 模糊背景
+
+3. **背景图案** (`background-patterns.css`)
+   - 圆点、网格、波浪、几何图案
+
+### 使用方法
+
+在 HTML 中添加类名：
+
+```html
+<!-- 玻璃效果 -->
+<div class="glass-card">内容</div>
+
+<!-- 悬浮效果 -->
+<div class="hover-lift">内容</div>
+
+<!-- 背景图案 -->
+<body class="bg-pattern-dots">
+```
+
+---
+
+## 🔧 常用命令
+
+```bash
+# 开发模式
+npm run dev
+
+# 构建生产版本
+npm run build
+
+# 预览构建结果
+npm run preview
+
+# 创建新文章
+npm run new-post
+
+# 代码格式化
+npm run format
+```
+
+---
+
+## 📊 部署流程
+
+```
+本地修改 → git push → GitHub Actions → 自动构建 → 部署到 gh-pages → 网站更新
+```
+
+### 自动部署说明
+
+- **触发条件**: 推送到 `master` 分支
+- **构建时间**: 约 2-5 分钟
+- **部署位置**: `gh-pages` 分支
+- **工作流文件**: `.github/workflows/deploy-simple.yml`
+
+---
+
+## ❓ 常见问题
+
+### Q: 推送后网站没更新？
+
+1. 检查 GitHub Actions 是否成功（仓库 → Actions 标签）
+2. 等待 5-10 分钟
+3. 清除浏览器缓存（Ctrl+Shift+R）
+
+### Q: 构建失败？
+
+1. 查看 Actions 日志中的错误信息
+2. 本地测试：`npm run build`
+3. 检查文章的 front-matter 格式
+
+### Q: 图片不显示？
+
+1. 图片放在 `public/assets/` 目录
+2. 使用路径：`/assets/image.jpg`
+3. 或使用完整 URL
+
+### Q: 如何修改域名？
+
+1. 在 `src/config.ts` 中修改 `siteURL`
+2. 如果使用自定义域名，在 Pages 仓库添加 `CNAME` 文件
+
+---
+
+## 📚 详细文档
+
+- **最终解决方案.md** - 部署问题解决方案
+- **简易部署说明.md** - 快速部署指南
+- **快速开始.md** - 完整使用指南
+
+---
+
+## 🎯 推荐工作流
+
+1. **本地编辑** - 创建/修改文章
+2. **本地预览** - `npm run dev` 查看效果
+3. **提交推送** - 运行 `deploy-simple.bat`
+4. **等待部署** - 2-5 分钟后查看网站
+
+---
+
+## 💡 提示
+
+- 📝 专注于内容创作
+- 🎨 保持简洁的设计
+- 🔄 定期更新文章
+- 📊 关注阅读体验
+
+---
+
+## 🔗 相关链接
+
+- **你的博客**: https://dandingbobaishi.github.io/
+- **GitHub**: https://github.com/dandingbobaishi
+- **Astro 文档**: https://docs.astro.build/
+
+---
+
+## � 许可证a
+
+本项目基于 Mizuki 主题，遵循相应的开源许可证。
+
+---
+
+祝你写作愉快！✨
